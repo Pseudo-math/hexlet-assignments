@@ -32,7 +32,7 @@ public class ProductsController {
         if (max == null) {
             return productRepository.findByPriceGreaterThanOrderByPriceAsc(min);
         }
-        return productRepository.findByPriceBetweenOrderByPriceAsc(min, max);
+        return productRepository.findByPriceBetweenOrderByPriceAsc(min + 1, max - 1);
     }
     // END
 

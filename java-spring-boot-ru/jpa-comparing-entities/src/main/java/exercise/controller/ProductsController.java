@@ -35,7 +35,7 @@ public class ProductsController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Product save(@RequestBody Product data) {
-        if (productRepository.findAll().stream().anyMatch(p -> p.equals(data))) {
+        if (productRepository.findAll().contains(data)) {
             throw new ResourceAlreadyExistsException("Product already exists");
         }
         var product = productRepository.save(data);
